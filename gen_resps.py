@@ -10,10 +10,9 @@ if(os.path.isdir(resp_path)):
 
 os.mkdir(resp_path)
 
-# write to response files and populate response folder
+# create response files and populate response folder
+ctr = 0
 with open('sites.txt') as sites_file:
-    ctr = 0
-
     for url in sites_file.readlines():
         ctr = ctr + 1
         resp = requests.get(url)
@@ -22,3 +21,9 @@ with open('sites.txt') as sites_file:
 
         with open(resp_file_path, 'w') as resp_file:
             resp_file.write(resp.text)
+
+# create metadata file
+meta_file_path = os.path.join(resp_path, 'meta.txt')
+
+with open(meta_file_path, 'w') as meta_file:
+    meta_file.write(str(ctr))
