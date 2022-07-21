@@ -2,29 +2,29 @@ import shutil
 import os
 import requests
 
-resp_path = os.path.join('.', 'responses')
+resps_fp = os.path.join('.', 'responses')
 
 # clear out files in existing responses folder
-if(os.path.isdir(resp_path)):
-    shutil.rmtree(resp_path)
+if(os.path.isdir(resps_fp)):
+    shutil.rmtree(resps_fp)
 
-os.mkdir(resp_path)
+os.mkdir(resps_fp)
 
 # create response files and populate response folder
 ctr = 0
-with open('sites.txt') as sites_file:
-    for url in sites_file.readlines():
+with open('sites.txt') as sites_fh:
+    for url in sites_fh.readlines():
         ctr = ctr + 1
         resp = requests.get(url)
-        resp_file_name = 'resp' + str(ctr) + '.txt'
-        resp_file_path = os.path.join(resp_path, resp_file_name)
+        resp_filename = 'resp' + str(ctr) + '.txt'
+        resp_fp = os.path.join(resps_fp, resp_filename)
 
-        with open(resp_file_path, 'w') as resp_file:
-            resp_file.write(resp.text)
+        with open(resp_fp, 'w') as resp_fh:
+            resp_fh.write(resp.text)
 
 # create metadata file
 if os.path.exists('meta.txt'):
     os.remove('meta.txt')
 
-with open('meta.txt', 'w') as meta_file:
-    meta_file.write(str(ctr) + '\n')
+with open('meta.txt', 'w') as meta_fh:
+    meta_fh.write(str(ctr) + '\n')
