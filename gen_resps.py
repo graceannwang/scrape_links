@@ -23,7 +23,8 @@ with open('sites.txt') as sites_file:
             resp_file.write(resp.text)
 
 # create metadata file
-meta_file_path = os.path.join(resp_path, 'meta.txt')
+if os.path.exists('meta.txt'):
+    os.remove('meta.txt')
 
-with open(meta_file_path, 'w') as meta_file:
-    meta_file.write(str(ctr))
+with open('meta.txt', 'w') as meta_file:
+    meta_file.write(str(ctr) + '\n')
