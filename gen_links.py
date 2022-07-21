@@ -1,19 +1,36 @@
-# clear out old links in links folder
-
-# retrieve and save number of responses from meta folder
-# loop thru all response files in responses folder
-# for each file:
-    # scrape and save new links
-    # add these new links to a new link file
-
 import os
 import shutil
 from bs4 import BeautifulSoup
 
-link_path = os.path.join('.', 'links')
+links_fp = os.path.join('.', 'links')
+resps_fp = os.path.join('.', 'responses')
 
 # clear out files in existing links folder
-if(os.path.isdir(link_path)):
-    shutil.rmtree(link_path)
+if(os.path.isdir(links_fp)):
+    shutil.rmtree(links_fp)
 
-os.mkdir(link_path)
+os.mkdir(links_fp)
+
+# retrieve and save number of sites from meta file
+num_sites = 0
+with open('meta.txt') as meta_fh:
+    num_sites = int(meta_fh.readline())
+
+#
+for i in range(1, num_sites + 1):
+    resp_filename = 'resp' + str(i) + '.txt'
+    resp_fp = os.path.join(resps_fp, resp_filename)
+
+    # read in the links for current site
+    a_tags = []
+    with open(resp_fp) as resp_fh:
+        resp_soup = BeautifulSoup(resp_fh, 'html.parser')
+        a_tags = resp_soup.find_all('a', href=True)
+    
+    # create and populate link file
+    link_filename = 'link' + str(i) + '.txt'
+    link_fp = os.path.join(links_fp, link_filename)
+
+    with open(link_fp, 'w') as link_fh:
+        for a_tag in a_tags:
+            link_fh.write(a_tag['href'] + '\n')
