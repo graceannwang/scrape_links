@@ -28,7 +28,7 @@ for i in range(1, num_sites + 1):
         a_tags = resp_soup.find_all('a', href=True)
     
     # create and populate link file
-    link_filename = 'link' + str(i) + '.txt'
+    link_filename = 'links' + str(i) + '.txt'
     link_fp = os.path.join(links_fp, link_filename)
 
     with open(link_fp, 'w') as link_fh:
