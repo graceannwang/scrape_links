@@ -21,16 +21,17 @@ for i in range(1, num_sites + 1):
     resp_filename = 'resp' + str(i) + '.txt'
     resp_fp = os.path.join(resps_fp, resp_filename)
 
-    # read in the links for current site
+    # scrape links for current site
     a_tags = []
     with open(resp_fp) as resp_fh:
         resp_soup = BeautifulSoup(resp_fh, 'html.parser')
         a_tags = resp_soup.find_all('a', href=True)
     
     # create and populate link file
-    link_filename = 'links' + str(i) + '.txt'
-    link_fp = os.path.join(links_fp, link_filename)
+    links_filename = 'links' + str(i) + '.txt'
+    linksfile_fp = os.path.join(links_fp, links_filename)
 
-    with open(link_fp, 'w') as link_fh:
+    with open(linksfile_fp, 'w') as links_fh:
         for a_tag in a_tags:
-            link_fh.write(a_tag['href'] + '\n')
+            links_fh.write(str(a_tag.string) + '\n')
+            links_fh.write(a_tag['href'] + '\n\n')
