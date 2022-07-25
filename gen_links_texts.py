@@ -28,10 +28,11 @@ os.mkdir(texts_fp)
 
 # scrape and save links and text
 for i in range(1, num_sites + 1):
+    # creating response filepath for later use
     resp_filename = 'resp' + str(i) + '.txt'
     resp_fp = os.path.join(resps_fp, resp_filename)
 
-    # scrape links for current site
+    # scrape links for current site from response file
     a_tags = []
     text = ''
     with open(resp_fp) as resp_fh:
@@ -42,7 +43,7 @@ for i in range(1, num_sites + 1):
         # scrape text
         text = resp_soup.get_text()
     
-    # create and populate link file
+    # create and populate link file in the links folder
     links_filename = 'links' + str(i) + '.txt'
     linksfile_fp = os.path.join(links_fp, links_filename)
     with open(linksfile_fp, 'w') as links_fh:
@@ -50,7 +51,7 @@ for i in range(1, num_sites + 1):
             links_fh.write(str(a_tag.string) + '\n')
             links_fh.write(a_tag['href'] + '\n\n')
 
-    # create and populate text file
+    # create and populate text file in the texts folder
     text_filename = 'text' + str(i) + '.txt'
     text_fp = os.path.join(texts_fp, text_filename)
     with open(text_fp, 'w') as text_fh:
