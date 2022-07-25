@@ -50,12 +50,12 @@ for i in range(1, num_sites + 1):
     links_filename = 'links' + str(i) + '.txt'
     linksfile_fp = os.path.join(links_fp, links_filename)
     with open(linksfile_fp, 'w') as links_fh:
+        links_fh.write(orig_url)
         for a_tag in a_tags:
             links_fh.write(str(a_tag.string) + '\n')
             url = a_tag['href']
             if(url.startswith('/')):
                 url = urljoin(orig_url, url)
-                # print(url)
             links_fh.write(url + '\n\n')
 
     # create and populate text file in the texts folder
