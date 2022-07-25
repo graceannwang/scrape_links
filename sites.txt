@@ -1,8 +1,8 @@
-https://transparency.fb.com/policies/community-standards/
-https://www.youtube.com/howyoutubeworks/policies/copyright/
-https://help.instagram.com/126382350847838/?helpref=uf_share
-https://help.twitter.com/en/rules-and-policies/copyright-policy
-https://www.linkedin.com/legal/copyright-policy
-https://sellercentral.amazon.com/gp/help/external/U5SQCEKADDAQRLZ
-https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy
-https://www.redditinc.com/policies/user-agreement
+https://transparency.fb.com/policies/community-standards/misinformation/
+https://support.google.com/youtube/answer/10834785?hl=en
+https://help.instagram.com/477434105621119/?helpref=uf_share
+https://help.twitter.com/en/rules-and-policies/crisis-misinformation
+https://www.amazon.com/gp/help/customer/display.html?nodeId=G3UA5WC5S5UUKB5G
+https://docs.github.com/en/site-policy/acceptable-use-policies/github-misinformation-and-disinformation
+https://www.redditinc.com/policies/content-policy
+https://www.etsy.com/legal/policy/harmful-misinformation/938683190953?ref=list
