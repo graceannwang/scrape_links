@@ -20,6 +20,7 @@ with open('sites.txt') as sites_fh:
         resp_fp = os.path.join(resps_fp, resp_filename)
 
         with open(resp_fp, 'w') as resp_fh:
+            resp_fh.write(url)
             resp_fh.write(resp.text)
 
 # create metadata file
