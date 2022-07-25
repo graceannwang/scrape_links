@@ -62,4 +62,5 @@ for i in range(1, num_sites + 1):
     text_filename = 'text' + str(i) + '.txt'
     text_fp = os.path.join(texts_fp, text_filename)
     with open(text_fp, 'w') as text_fh:
+        text_fh.write(orig_url)
         text_fh.write(text)
