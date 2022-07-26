@@ -1,10 +1,10 @@
 # scrape_links
 
-As of 07/22/22 1:02pm
+As of 07/26/22 11:11am
 
 ## Overview 
 
-Given a list of sites, scrape and save the links from each site.
+Given a list of sites, scrape and save the links and content from each site.
 
 ## File/folder descriptions
 
@@ -14,9 +14,12 @@ Given a list of sites, scrape and save the links from each site.
 
 ***gen_resps.py***: Requests the html responses from the sites in sites.txt and saves them in the *responses* folder.
 
-***gen_links.py***: For each response file in *responses*, scrapes all links and saves them in the *links* folder
+***gen_links_texts.py***: For each response file in *responses*, (1) scrapes and saves all links in the *links* folder and (2) scrapes and saves the page content in the *texts* folder.
 
-***responses***: Each response file in the *responses* folder corresponds to a particular site from sites.txt. For a response file *respX.txt*, the *X* integer corresponds to the line number in *sites.txt* the site is associated with.
+***responses***: Each resps.txt file corresponds to a particular site from sites.txt. For a response file *respX.txt*, the *X* integer corresponds to the line number in *sites.txt* the site is associated with.
 
-***links***: Each links file in the *links* folder corresponds to a particular response from *responses* and site from *sites.txt*. For a links file *linksX.txt*, the *X* integer corresponds to the line number in *sites.txt* the site is associated with.
+***texts***: Each text.txt file corresponds to a particular site from sites.txt. For a text file *textX.txt*, the *X* integer corresponds to the line number in *sites.txt* the site is associated with.
+
+
+***links***: Each links.txt file corresponds to a particular site from sites.txt. For a links file *linksX.txt*, the *X* integer corresponds to the line number in *sites.txt* the site is associated with.
 
